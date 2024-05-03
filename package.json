@@ -1,7 +1,7 @@
 {
   "name": "homework-tracker-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Homework Tracker Backend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
