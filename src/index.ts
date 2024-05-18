@@ -1,14 +1,21 @@
 import bcrypt from "bcrypt";
 import express from "express";
+import { initDBConnection } from "./models/dbConnection";
+import 'dotenv/config';
+
+// Authentification
+import login from "./controllers/authentification/login";
+import register from "./controllers/authentification/register";
+
 const app = express();
-const port = 3000;
+app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
+// Authentification
+app.use(login);
+app.use(register);
 
-app.listen(port, () => {
-  console.log(`app listening on port ${port}`)
-  const hash = bcrypt.hashSync("password", 10);
-  console.log(hash)
+initDBConnection();
+
+app.listen(process.env.PORT, () => {
+  console.log(`app listening on port ${process.env.PORT}`)
 });
