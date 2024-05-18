@@ -2,17 +2,11 @@ import bcrypt from "bcrypt";
 import express from "express";
 import { initDBConnection } from "./models/dbConnection";
 import 'dotenv/config';
-
-// Authentification
-import login from "./controllers/authentification/login";
-import register from "./controllers/authentification/register";
+import controllers from "./controllers/authentification";
 
 const app = express();
 app.use(express.json());
-
-// Authentification
-app.use(login);
-app.use(register);
+app.use(controllers);
 
 initDBConnection();
 

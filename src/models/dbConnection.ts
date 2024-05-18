@@ -1,7 +1,5 @@
 import 'dotenv/config';
-import { Sequelize, DataTypes} from 'sequelize';
-import { User } from './User';
-
+import { Sequelize, DataTypes } from 'sequelize';
 
 export const sequelize = new Sequelize(
     process.env.MYSQL_DB as string,
@@ -13,7 +11,6 @@ export const sequelize = new Sequelize(
     }
 );
 
-
 export const initDBConnection = () => {
     sequelize.authenticate().then(() => {
         console.log("MySQL: connection established!");
@@ -22,9 +19,8 @@ export const initDBConnection = () => {
     });
 
     sequelize.sync().then(() => {
-        console.log("MySQL: User TABLE synced!")
+        console.log("MySQL: synced!")
     }).catch((error) => {
-        console.log("MySQL: User Table error = ", error);
-    })
-    
+        console.log("MySQL: syncing failed =", error);
+    })  
 }
