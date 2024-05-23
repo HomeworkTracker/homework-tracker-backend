@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {Op} from "sequelize";
+import { Op } from "sequelize";
 import { User } from "../../models/User";
 import 'dotenv/config';
 import bcrypt from 'bcrypt';

@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { Sequelize, DataTypes } from 'sequelize';
+import { Sequelize } from 'sequelize';
 
 export const sequelize = new Sequelize(
     process.env.MYSQL_DB as string,
