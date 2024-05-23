@@ -6,3 +6,6 @@ build/
 
 # MySQL
 sqlData/
+
+# Environment Variables
+.env
