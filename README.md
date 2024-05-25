@@ -14,3 +14,6 @@ Runs nodemon along with typescript build and runs the program, watches the entir
 
 ### `npm run build`
 Builds the project into the `build` folder.
+
+### `npm run lint`
+Run linting for the `src` folder
