@@ -1,6 +1,5 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../dbConnection";
-import { Post } from "../Post";
 
 export class PlainTextContent extends Model {
     declare ID: number;
@@ -18,6 +17,6 @@ PlainTextContent.init({
         type: DataTypes.STRING(255),
         allowNull: false,
     }
-}, { sequelize, modelName: 'PlainTextContent' });
+}, { sequelize, modelName: "PlainTextContent" });
 
 

@@ -1,5 +1,5 @@
-import 'dotenv/config';
-import { Sequelize } from 'sequelize';
+import "dotenv/config";
+import { Sequelize } from "sequelize";
 
 export const sequelize = new Sequelize(
     process.env.MYSQL_DB as string,
@@ -7,7 +7,7 @@ export const sequelize = new Sequelize(
     process.env.MYSQL_PASS as string,
     {
         host: process.env.MYSQL_HOST as string,
-        dialect: 'mysql'
+        dialect: "mysql"
     }
 );
 

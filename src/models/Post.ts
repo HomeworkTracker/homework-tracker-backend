@@ -10,8 +10,8 @@ export class Post extends Model {
 }
 
 export enum ContentType {
-    PlainText = 'PlainText',
-    MongoDoc = 'MongoDoc'
+    PlainText = "PlainText",
+    MongoDoc = "MongoDoc"
 }
 
 Post.init({
@@ -30,33 +30,33 @@ Post.init({
         type: DataTypes.INTEGER,
         allowNull: false,
     }
-}, { sequelize, modelName: 'Post' });
+}, { sequelize, modelName: "Post" });
 
 Post.hasOne(PlainTextContent, {
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
     foreignKey: {
-        name: 'ContentID'
+        name: "ContentID"
     }
 });
 
 MongoDocContent.belongsTo(Post, {
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-    foreignKey: 'PostID'
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+    foreignKey: "PostID"
 });
 
 Post.hasOne(MongoDocContent, {
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
     foreignKey: {
-        name: 'ContentID'
+        name: "ContentID"
     }
 });
 
 PlainTextContent.belongsTo(Post, {
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-    foreignKey: 'PostID'
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+    foreignKey: "PostID"
 });
 

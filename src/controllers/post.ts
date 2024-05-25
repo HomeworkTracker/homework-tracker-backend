@@ -4,15 +4,14 @@ import { ContentType, Post } from "../models/Post";
 
 const post = Router();
 
-post.route('/post')
+post.route("/post")
     .post(async (req, res) => {
-        const body = req.body;
         try {
             const post = await Post.create({
                 UserID: 0,
                 ContentType: ContentType.PlainText,
                 PlainTextContent: {
-                    Text: 'Hello World'
+                    Text: "Hello World"
                 }
             }, {
                 include: [PlainTextContent]
