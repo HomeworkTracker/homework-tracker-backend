@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import post from './post';
+import { Router } from "express";
+import post from "./post";
 const controllers = Router();
 
 controllers.use(post);

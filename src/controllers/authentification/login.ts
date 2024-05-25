@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { Op } from "sequelize";
 import { User } from "../../models/User";
-import 'dotenv/config';
-import bcrypt from 'bcrypt';
+import "dotenv/config";
+import bcrypt from "bcrypt";
 
 const login = Router();
 
@@ -11,7 +11,7 @@ login.route("/login")
         const body = req.body;
         try {
             if (!body.username || !body.password) {
-                throw new Error('username/email and password attribute required');
+                throw new Error("username/email and password attribute required");
             }
             
             const user: User | null = await User.findOne({where: {
@@ -26,13 +26,13 @@ login.route("/login")
                     if (err) {
                         res.status(500).send(err)
                     } else if (result) {
-                        res.status(200).send('logged in!');
+                        res.status(200).send("logged in!");
                     } else {
-                        res.status(400).send('Wrong Username/Password!');
+                        res.status(400).send("Wrong Username/Password!");
                     }
                 });
             } else {
-                res.status(400).send('Wrong Username/Password!');
+                res.status(400).send("Wrong Username/Password!");
             }
         } catch(error) {
             if (typeof error === "string") {

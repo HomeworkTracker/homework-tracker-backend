@@ -1,7 +1,6 @@
-import bcrypt from "bcrypt";
 import express from "express";
 import { initDBConnection } from "./models/dbConnection";
-import 'dotenv/config';
+import "dotenv/config";
 import controllers from "./controllers";
 import authentification from "./middleware/authentification";
 import login from "./controllers/authentification/login";

@@ -1,6 +1,5 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../dbConnection";
-import { Post } from "../Post";
 
 export class MongoDocContent extends Model {
     declare ID: number;
@@ -18,5 +17,5 @@ MongoDocContent.init({
         type: DataTypes.CHAR(12),
         allowNull: false
     }
-}, { sequelize, modelName: 'MongoDocContent' });
+}, { sequelize, modelName: "MongoDocContent" });
 
