@@ -5,9 +5,11 @@ import controllers from "./controllers";
 import authentification from "./middleware/authentification";
 import login from "./controllers/authentification/login";
 import register from "./controllers/authentification/register";
+import cookieParser from "cookie-parser";
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 
 
 // Exceptions to authentification

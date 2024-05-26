@@ -3,6 +3,10 @@ import { Op } from "sequelize";
 import { User } from "../../models/User";
 import "dotenv/config";
 import bcrypt from "bcrypt";
+import fs from "fs";
+import jsonwebtoken from "jsonwebtoken";
+
+const PRIVATEKEY = fs.readFileSync("private.key", "utf-8");
 
 const login = Router();
 
@@ -26,7 +30,11 @@ login.route("/login")
                     if (err) {
                         res.status(500).send(err)
                     } else if (result) {
-                        res.status(200).send("logged in!");
+                        const token = jsonwebtoken.sign({
+                            user: user.Username
+                        }, PRIVATEKEY, { expiresIn: '1h', algorithm: 'RS256'});
+
+                        res.status(200).cookie('token', token).send('Logged in!');
                     } else {
                         res.status(400).send("Wrong Username/Password!");
                     }
