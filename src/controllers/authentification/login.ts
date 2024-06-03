@@ -28,13 +28,13 @@ login.route("/login")
             if (user) {
                 bcrypt.compare(body.password, user.Password, (err, result) => {
                     if (err) {
-                        res.status(500).send(err)
+                        res.status(500).send(err);
                     } else if (result) {
                         const token = jsonwebtoken.sign({
                             user: user.Username
-                        }, PRIVATEKEY, { expiresIn: '1h', algorithm: 'RS256'});
+                        }, PRIVATEKEY, { expiresIn: "1h", algorithm: "RS256"});
 
-                        res.status(200).cookie('token', token).send('Logged in!');
+                        res.status(200).cookie("token", token).send("Logged in!");
                     } else {
                         res.status(400).send("Wrong Username/Password!");
                     }
@@ -44,9 +44,9 @@ login.route("/login")
             }
         } catch(error) {
             if (typeof error === "string") {
-                res.status(400).send(error)
+                res.status(400).send(error);
             } else if (error instanceof Error){
-                res.status(400).send(error.message)
+                res.status(400).send(error.message);
             }
         }
     });

@@ -19,9 +19,9 @@ post.route("/post")
             res.status(201).send(post.toJSON());
         } catch (error) {
             if (typeof error === "string") {
-                res.status(400).send(error)
+                res.status(400).send(error);
             } else if (error instanceof Error){
-                res.status(400).send(error.message)
+                res.status(400).send(error.message);
             }
         }
     });
