@@ -6,6 +6,7 @@ import authentification from "./middleware/authentification";
 import login from "./controllers/authentification/login";
 import register from "./controllers/authentification/register";
 import cookieParser from "cookie-parser";
+import health from "./controllers/health";
 
 const app = express();
 app.use(express.json());
@@ -13,6 +14,7 @@ app.use(cookieParser());
 
 
 // Exceptions to authentification
+app.use(health);
 app.use(login);
 app.use(register);
 
