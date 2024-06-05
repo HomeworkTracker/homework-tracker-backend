@@ -11,7 +11,7 @@ post.route("/post")
                 UserID: 0,
                 ContentType: ContentType.PlainText,
                 PlainTextContent: {
-                    Text: "Hello World"
+                    Text: req.body.text
                 }
             }, {
                 include: [PlainTextContent]
