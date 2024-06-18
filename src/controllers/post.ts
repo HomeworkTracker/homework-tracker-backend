@@ -12,7 +12,8 @@ post.route("/post")
                 ContentType: ContentType.PlainText,
                 PlainTextContent: {
                     Text: req.body.text
-                }
+                },
+                BoardID: 1,
             }, {
                 include: [PlainTextContent]
             });

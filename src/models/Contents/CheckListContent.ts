@@ -1,12 +1,14 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../dbConnection";
+import { Post } from "../Post";
 
-export class PlainTextContent extends Model {
+export class CheckListContent extends Model {
     declare ID: number;
     declare Text: string;
+    declare Done: boolean;
 }
 
-PlainTextContent.init({
+CheckListContent.init({
     ID: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -16,5 +18,11 @@ PlainTextContent.init({
     Text: {
         type: DataTypes.STRING(255),
         allowNull: false,
+    },
+    Done: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
     }
-}, { sequelize, modelName: "PlainTextContent" });
+}, { sequelize, modelName: "CheckListContent" });
+
+CheckListContent.belongsTo(Post);

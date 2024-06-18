@@ -18,7 +18,7 @@ export const initDBConnection = () => {
         console.log("MySQL: connection error =", error);
     });
 
-    sequelize.sync().then(() => {
+    sequelize.sync({force: false}).then(() => {
         console.log("MySQL: synced!");
     }).catch((error) => {
         console.log("MySQL: syncing failed =", error);
