@@ -1,11 +1,16 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "./dbConnection";
-import { Post } from "./Post";
-import { Member } from "./Member";
 
 export class Board extends Model {
     declare ID: number;
     declare Name: string;
+
+    obscured() {
+        return ({
+            ID: this.ID,
+            Name: this.Name
+        });
+    }
 }
 
 Board.init({

@@ -4,11 +4,6 @@ export class Post extends Model {
     declare ID: number;
 }
 
-export enum ContentType {
-    PlainText = "PlainText",
-    CheckList = "CheckList"
-}
-
 Post.init({
     ID: {
         type: DataTypes.INTEGER,
@@ -16,9 +11,4 @@ Post.init({
         primaryKey: true,
         autoIncrement: true
     },
-    ContentType: {
-        type: DataTypes.ENUM,
-        values: Object.values(ContentType),
-        allowNull: false
-    }
 }, { sequelize, modelName: "Post" });

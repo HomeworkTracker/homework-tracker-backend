@@ -19,8 +19,11 @@ function associations() {
     
     Post.belongsTo(Board);
     Post.belongsTo(User);
-    Post.hasOne(PlainTextContent);
+    Post.hasMany(PlainTextContent);
     Post.hasMany(CheckListContent);
+
+    PlainTextContent.belongsTo(Post);
+    CheckListContent.belongsTo(Post);
 }
 
 export default associations;

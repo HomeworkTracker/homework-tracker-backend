@@ -1,4 +1,4 @@
-import { DataTypes, Model } from "sequelize";
+import { Model } from "sequelize";
 import { sequelize } from "./dbConnection";
 
 export class Member extends Model {
