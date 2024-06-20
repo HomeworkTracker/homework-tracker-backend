@@ -24,5 +24,3 @@ CheckListContent.init({
         allowNull: false
     }
 }, { sequelize, modelName: "CheckListContent" });
-
-CheckListContent.belongsTo(Post);
